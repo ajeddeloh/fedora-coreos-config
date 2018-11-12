@@ -1,0 +1,59 @@
+{
+  "ignition": {
+    "config": {},
+    "security": {
+      "tls": {}
+    },
+    "timeouts": {},
+    "version": "2.2.0"
+  },
+  "networkd": {},
+  "passwd": {},
+  "storage": {
+    "disks": [
+      {
+        "device": "/$DISK",
+        "partitions": [
+          {
+            "label": "EFI-SYSTEM",
+            "number": 1,
+            "size": 262144,
+            "typeGuid": "C12A7328-F81F-11D2-BA4B-00A0C93EC93B"
+          },
+          {
+            "label": "BIOS-BOOT",
+            "number": 2,
+            "size": 262144,
+            "typeGuid": "21686148-6449-6E6F-744E-656564454649"
+          },
+          {
+            "label": "ROOT",
+            "number": 3,
+            "size": 16777216,
+            "typeGuid": "4F68BCE3-E8CD-4DB1-96E7-FBCAF984B709"
+          }
+        ],
+        "wipeTable": true
+      }
+    ],
+    "filesystems": [
+      {
+        "mount": {
+          "device": "/$DISKp1",
+          "format": "vfat",
+          "label": "EFI-SYSTEM"
+        },
+        "name": "boot"
+      },
+      {
+        "mount": {
+          "device": "/$DISKp3",
+          "format": "xfs",
+          "label": "ROOT"
+        },
+        "name": "root"
+      }
+    ]
+  },
+  "systemd": {}
+}
